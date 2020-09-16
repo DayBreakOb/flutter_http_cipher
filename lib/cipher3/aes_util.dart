@@ -6,7 +6,9 @@ import 'package:pointycastle/export.dart';
 import 'crypto_utils.dart';
 
 class AesUtil {
-  Uint8List aesCbcEncry(Uint8List encrypted1, String aesKey, String aesIv) {
+
+
+static  Uint8List aesCbcEncry(Uint8List encrypted1, String aesKey, String aesIv) {
     if (aesKey == null || aesKey.length == 0 || aesKey.length != 32) {
       throw ("aes key must be length(32)");
     }
@@ -34,11 +36,11 @@ class AesUtil {
       assert(offset == cipherText.length);
       return cipherText;
     } catch (e) {
-      throw ("aesencry发生错误" + e.toString());
+      throw ("there is error raise on encry data" + e.toString());
     }
   }
 
-  Uint8List aesCbcDecry(Uint8List encrypted1, String aesKey, String aesIv) {
+  static Uint8List aesCbcDecry(Uint8List encrypted1, String aesKey, String aesIv) {
     if (aesKey == null || aesKey.length == 0 || aesKey.length != 32) {
       throw ("aes key must be length(32)");
     }
@@ -66,7 +68,7 @@ class AesUtil {
       assert(offset == cipherText.length);
       return paddedPlaintext;
     } catch (e) {
-      throw ("aes解密发生错误" + e.toString());
+      throw ("there is error raise on decry data" + e.toString());
     }
   }
 }
